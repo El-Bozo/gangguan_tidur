@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 # Load model dan tools
-with open('model_sleep.pkl', 'rb') as f:
+with open('../model_sleep.pkl', 'rb') as f:
     model = pickle.load(f)
 
 with open('scaler.pkl', 'rb') as f:
