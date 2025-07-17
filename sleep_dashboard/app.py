@@ -2,21 +2,25 @@ import streamlit as st
 import pickle
 import numpy as np
 import pandas as pd
+import os
 
 # Load model dan tools
 
-with open('model_sleep.pkl', 'rb') as f:
+# Dapatkan direktori saat ini
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Load model dan tools
+with open(os.path.join(CURRENT_DIR, 'model_sleep.pkl'), 'rb') as f:
     model = pickle.load(f)
 
-with open('scaler.pkl', 'rb') as f:
+with open(os.path.join(CURRENT_DIR, 'scaler.pkl'), 'rb') as f:
     scaler = pickle.load(f)
 
-with open('label_encoders.pkl', 'rb') as f:
+with open(os.path.join(CURRENT_DIR, 'label_encoders.pkl'), 'rb') as f:
     label_encoders = pickle.load(f)
 
-with open('columns.pkl', 'rb') as f:
+with open(os.path.join(CURRENT_DIR, 'columns.pkl'), 'rb') as f:
     feature_columns = pickle.load(f)
-
 st.title("🛌 Prediksi Gangguan Tidur")
 
 # Input pengguna
